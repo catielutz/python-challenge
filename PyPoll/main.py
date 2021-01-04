@@ -47,14 +47,13 @@ print(f"Winner: {winner}")
 print("-------------------------")
 
 # print to text file
-
 text = open("PyPoll_Analysis.txt", "w")
 
 text.write("-------------------------\n")
 text.write("Election Results\n")
 text.write("-------------------------\n")
-text.write("Total votes: " + str(total_votes))
-text.write("\n-------------------------\n")
+text.write(f"Total votes: {total_votes}\n")
+text.write("-------------------------\n")
 
 for name in range(len(candidates)):
     percentOFvote = round((count_vote[name]/total_votes)*100)
