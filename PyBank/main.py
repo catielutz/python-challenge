@@ -19,7 +19,7 @@ with open(pybankcsv, "r") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     #skip the header
     csv_header = next(csvreader)
-   # read through each row after the header
+    #read through each row after the header
     for row in csvreader:
         # count months
         count_months += 1
