@@ -35,7 +35,7 @@ print("-------------------------")
 print(f"Total votes: {total_votes}")
 print("-------------------------")
 
-# calculate percentages, determine winner, print results to terminal
+# for loop to calculate percentages, determine winner, print results for each candidate to terminal
 for name in range(len(candidates)):
     percentOFvote = round((count_vote[name]/total_votes)*100)
     print(f"{candidates[name]}: {percentOFvote}% ({count_vote[name]})")
@@ -47,17 +47,17 @@ print(f"Winner: {winner}")
 print("-------------------------")
 
 # print to text file
-text = open("PyPoll_Analysis.txt", "w")
+PyPoll_Analysis = os.path.join("Analysis", "PyPoll_Analysis.txt")
+with open(PyPoll_Analysis, "w") as text:
+    text.write("-------------------------\n")
+    text.write("Election Results\n")
+    text.write("-------------------------\n")
+    text.write(f"Total votes: {total_votes}\n")
+    text.write("-------------------------\n")
 
-text.write("-------------------------\n")
-text.write("Election Results\n")
-text.write("-------------------------\n")
-text.write(f"Total votes: {total_votes}\n")
-text.write("-------------------------\n")
-
-for name in range(len(candidates)):
-    percentOFvote = round((count_vote[name]/total_votes)*100)
-    text.write(f"{candidates[name]} : {percentOFvote}% ({count_vote[name]})\n")
-text.write("-------------------------\n")
-text.write(f"Winner: {winner}\n")
-text.write("-------------------------\n")
+    for name in range(len(candidates)):
+        percentOFvote = round((count_vote[name]/total_votes)*100)
+        text.write(f"{candidates[name]} : {percentOFvote}% ({count_vote[name]})\n")
+    text.write("-------------------------\n")
+    text.write(f"Winner: {winner}\n")
+    text.write("-------------------------\n")
